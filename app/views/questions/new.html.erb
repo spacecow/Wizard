@@ -1,0 +1,10 @@
+<div class="form">
+<%= error_messages_for :question %>
+<fieldset>
+<legend>New Question</legend>
+
+<%= render :partial => 'form' %>
+
+<p><%= link_to "Back to List", questions_path %></p>
+</fieldset>
+</div>

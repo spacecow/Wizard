@@ -1,0 +1,15 @@
+<div class="form">
+<%= error_messages_for :question %>
+
+<fieldset>
+<legend><%= t('questions.editing') %></legend>
+
+<%= render :partial => 'form' %>
+
+<p>
+  <%= link_to t('show'), @question %> |
+  <%= link_to "View All", questions_path %>
+</p>
+
+</fieldset>
+</div>

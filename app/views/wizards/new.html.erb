@@ -1,0 +1,13 @@
+<div class="form">
+<%= error_messages_for :wizard %>
+<fieldset>
+<legend>Wizards#new</legend>
+	<% form_for @wizard do |f| %>
+		<p>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</p>
+		<p><%= f.submit "Create", :class=>"submit" %></p>
+	<% end %>
+</fieldset>
+</div>

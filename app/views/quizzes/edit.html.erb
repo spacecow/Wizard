@@ -1,0 +1,30 @@
+<% form_for @quiz do |f| -%>
+	<fieldset>
+		<% @quiz.questions.each do |question| %>
+			<% answer = @quiz.answers.find_by_question_id( question.id ) || Answer.new( :question_id => question.id ) %>
+			<% new_or_existing = answer.new_record? ? 'new' : 'existing' %>
+			<% fields_for "quiz[#{new_or_existing}_answer_attributes][]", answer do |ff| %>
+				<p>
+					<%= ff.hidden_field :question_id %>
+					<%= render :partial => question_template( question ),
+										 :locals => { :question => question, :ff => ff } %>
+				</p>
+			<% end %>
+		<% end %>
+	</fieldset>
+
+<%= hidden_field_tag :direction, "next" %>
+<hr/>
+
+<table class="controls">
+	<tr>
+		<td>
+			<%= button_to_function "&#8592; Previous", "$('direction').value = 'previous'; this.form.submit();" %>
+		</td>
+		<td>
+			<%= submit_tag "Next &#8594;" %>
+		</td>
+	</tr>
+</table>
+
+<% end -%>

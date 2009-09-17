@@ -1,0 +1,8 @@
+<h1>Wizards#index</h1>
+<% @wizards.each do |wizard| %>
+	<p>
+		<%= wizard.to_s %>
+		<%= link_to "Edit", edit_wizard_path( wizard ), :class=>"link" %>
+	</p>
+<% end %>
+<%= link_to "New Wizard", new_wizard_path, :class=>"link" %>

@@ -1,0 +1,21 @@
+<% title "Questions" %>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Text</th>
+    <th>Quiz</th>
+  </tr>
+  <% for question in @questions %>
+    <tr>
+      <td><%=h question.type %></td>
+      <td><%=h question.text %></td>
+      <td><%=h question.quiz_id %></td>
+      <td><%= link_to "Show", question %></td>
+      <td><%= link_to "Edit", edit_question_path(question) %></td>
+      <td><%= link_to "Destroy", question, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Question", new_question_path %></p>

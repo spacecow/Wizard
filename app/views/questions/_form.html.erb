@@ -1,0 +1,16 @@
+<% form_for @question do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :type, t('type') %>
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :text, t('text') %>
+    <%= f.text_field :text %>
+  </p>
+  <p>
+    <%= f.label :quiz_id, t('quiz_id') %>
+    <%= f.text_field :quiz_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
